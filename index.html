@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"> <!-- Déclare l’encodage UTF-8 pour que le navigateur lise correctement les accents et caractères spéciaux. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Définit la largeur de mise en page sur celle de l’appareil afin que le responsive fonctionne sur mobile. -->
+  <meta name="theme-color" content="#1b3f6c"> <!-- Suggère la couleur de la barre du navigateur sur les appareils compatibles pour l’accorder à l’interface. -->
+  <title>Akitaine Transit — Tableau de bord</title> <!-- Fournit le titre de l’onglet et le nom utilisé par les favoris et les résultats de recherche. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Ouvre tôt une connexion vers le serveur de polices pour réduire le délai de chargement. -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Prépare une connexion distincte au serveur des fichiers de police; crossorigin respecte son mode CORS. -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Télécharge DM Sans et DM Mono, utilisées respectivement pour le texte courant et les libellés techniques. -->
+  <link rel="stylesheet" href="styles.css"> <!-- Charge la feuille qui définit les styles visuels et les règles responsive de la page. -->
+</head>
+<body>
+  <aside class="sidebar" id="sidebar"> <!-- Navigation latérale de l’application. -->
+    <button class="close-menu" id="close-menu" type="button" aria-label="Fermer le menu">×</button> <!-- Permet de refermer le tiroir mobile sans choisir de rubrique. -->
+    <a class="brand" href="#accueil" aria-label="Akitaine Transit, accueil"> <!-- Bloc de marque et lien d’accueil. -->
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 42 42"><rect x="1" y="1" width="40" height="40" rx="8" fill="#fff"/><path d="M7 29 18 12h7L14 29zm13 0 10-16h6L26 29z" fill="#214777"/><path d="M28 28h8l-5-6-4 6zM10 32h25v2H10z" fill="#e96b41"/></svg></span> <!-- Logo vectoriel dessiné dans la page. -->
+      <span class="brand-copy"><strong>Akitaine Transit</strong><small>FRANCE · CÔTE D’IVOIRE</small></span> <!-- Nom et itinéraire de la société. -->
+    </a>
+    <div class="side-divider"></div> <!-- Séparateur sous le logo. -->
+    <nav class="nav" aria-label="Navigation principale"> <!-- Liens vers les sections du tableau de bord. -->
+      <a class="nav-link active" href="#accueil"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 8h3v3H8zm5 0h3v3h-3zM8 13h3v3H8zm5 0h3v3h-3z"/></svg><span>Tableau de bord</span></a> <!-- Section actuellement sélectionnée. -->
+      <a class="nav-link" href="#colis"><svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12v9m-4-16 8 4.5v9"/></svg><span>Colis</span></a> <!-- Accès à la gestion des colis. -->
+      <a class="nav-link" href="#chargements"><svg viewBox="0 0 24 24"><path d="M3 6h11v11H3zM14 10h4l3 4v3h-7z"/><circle cx="7.5" cy="18" r="1.8"/><circle cx="18" cy="18" r="1.8"/></svg><span>Chargements</span></a> <!-- Accès aux chargements. -->
+      <a class="nav-link" href="#produits"><svg viewBox="0 0 24 24"><path d="M20.5 13 13 20.5a2.1 2.1 0 0 1-3 0L3.5 14V3.5H14l6.5 6.5a2.1 2.1 0 0 1 0 3Z"/><circle cx="8" cy="8" r="1.3"/></svg><span>Produits</span></a> <!-- Accès au catalogue de produits. -->
+    </nav>
+    <button class="new-parcel" id="new-parcel"><span aria-hidden="true">＋</span> Nouveau colis</button> <!-- Action de création d’un colis. -->
+    <div class="profile"><span class="avatar">S</span><span><strong>SYLLA VAZ</strong><small>AGENT · PARIS</small></span></div> <!-- Utilisateur connecté. -->
+    <button class="logout" id="logout">Se déconnecter</button> <!-- Action de déconnexion de démonstration. -->
+  </aside>
+
+  <main class="main" id="accueil"> <!-- Zone principale du tableau de bord. -->
+    <button class="mobile-menu" id="mobile-menu" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button> <!-- Déclenche le tiroir de navigation mobile; aria-expanded expose son état aux technologies d’assistance. -->
+    <header class="page-header"><p class="eyebrow">TABLEAU DE BORD</p><h1>SALUT, Mr SYLLA.</h1><p class="welcome">Voici l’activité de l’agence aujourd’hui.</p></header> <!-- Titre et message d’accueil. -->
+    <section class="stats" aria-label="Indicateurs du jour"> <!-- Résumé des principaux indicateurs. -->
+      <article class="stat-card"><div class="stat-top"><span class="eyebrow">COLIS EN COURS</span><span class="stat-icon blue"><svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12v9m-4-16 8 4.5v9"/></svg></span></div><strong class="stat-number">3</strong><span class="stat-note">9 au total</span></article> <!-- Colis actifs. -->
+      <article class="stat-card"><div class="stat-top"><span class="eyebrow">COLIS LIVRÉS</span><span class="stat-icon green"><svg viewBox="0 0 24 24"><path d="M20 11.2V12a8 8 0 1 1-4.7-7.3M20 5l-9 9-3-3"/></svg></span></div><strong class="stat-number">6</strong><span class="stat-note">Statut final</span></article> <!-- Livraisons terminées. -->
+      <article class="stat-card"><div class="stat-top"><span class="eyebrow">RECETTES DU JOUR</span><span class="stat-icon amber euro">€</span></div><strong class="stat-number">400€</strong><span class="stat-note">Total: 1 233€</span></article> <!-- Recettes encaissées. -->
+      <article class="stat-card"><div class="stat-top"><span class="eyebrow">IMPAYÉS</span><span class="stat-icon red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6m0 4h.01"/></svg></span></div><strong class="stat-number">2</strong><span class="stat-note">233€ Restants</span></article> <!-- Paiements restant à recouvrer. -->
+    </section>
+
+    <section class="panel status-panel" aria-labelledby="status-title"> <!-- Résumé du nombre de colis par statut. -->
+      <div class="section-heading"><p class="eyebrow">STATUS</p><h2 id="status-title">Répartition des colis</h2></div> <!-- Titre de la répartition. -->
+      <div class="status-grid"><article class="status-card"><span class="badge badge-new">Nouveau</span><strong>1</strong><small>colis enregistré</small></article><article class="status-card"><span class="badge badge-transit">En transit</span><strong>2</strong><small>en route</small></article><article class="status-card"><span class="badge badge-arrived">Arrivé en agence</span><strong>0</strong><small>en attente</small></article><article class="status-card"><span class="badge badge-delivered">Livré</span><strong>6</strong><small>livrés avec succès</small></article></div> <!-- Les quatre cartes de statut. -->
+    </section>
+
+    <section class="panel activity-panel" id="colis" aria-labelledby="activity-title"> <!-- Liste des colis récemment enregistrés. -->
+      <div class="activity-heading"><div class="section-heading"><p class="eyebrow">ACTIVITÉ RÉCENTE</p><h2 id="activity-title">5 derniers colis</h2></div><a class="view-all" href="#colis">Tout voir <span aria-hidden="true">→</span></a></div> <!-- Titre du tableau et lien vers la liste complète. -->
+      <div class="table-scroll"><table><thead><tr><th>RÉFÉRENCE</th><th>EXPÉDITEUR → DESTINATAIRE</th><th>TRAJET</th><th>STATUT</th><th>PAIEMENT</th></tr></thead><tbody id="parcel-rows"></tbody></table></div> <!-- Encapsule le tableau pour autoriser son défilement horizontal sur petit écran sans élargir toute la page. -->
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div> <!-- Zone de retour annoncée par les lecteurs d’écran quand une action affiche un message. -->
+  <script src="script.js"></script> <!-- Charge le JavaScript en fin de document afin que les éléments ciblés existent déjà au moment de leur sélection. -->
+</body>
+</html>

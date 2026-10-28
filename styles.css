@@ -1,0 +1,132 @@
+/* Palette globale : fond ivoire, texte bleu et séparateurs discrets. */
+/* Définit les valeurs héritées et les variables CSS pour centraliser la palette et éviter de répéter les mêmes couleurs. */
+:root{font-family:"DM Sans",Arial,sans-serif;color:#1d2936;background:#fafaf7;font-synthesis:none;text-rendering:optimizeLegibility;font-optical-sizing:auto;font-weight:400;--navy:#1b3f6c;--ink:#18375c;--muted:#77808a;--line:#e7e8e4;--paper:#fff;--mono:"DM Mono",monospace}
+/* Inclut les bordures dans le calcul des dimensions. */
+*{box-sizing:border-box}
+/* La page occupe toute la hauteur sans défilement horizontal. */
+body{margin:0;min-width:320px;min-height:100vh}
+/* Barre latérale fixe de navigation. */
+.sidebar{position:fixed;inset:0 auto 0 0;z-index:5;display:flex;flex-direction:column;width:312px;padding:22px 16px;background:var(--navy);color:#e9f0f9}
+/* Aligne le logo et le nom de l’agence. */
+.brand{display:flex;align-items:center;gap:10px;padding:0 2px 19px;color:inherit;text-decoration:none}
+/* Donne au logo vectoriel sa taille. */
+.brand-mark{width:42px;height:42px;flex:none}
+/* Le SVG remplit son conteneur sans espace de ligne, pour aligner proprement le logo. */
+.brand-mark svg{display:block;width:100%;height:100%}
+/* Regroupe les deux lignes du nom de l’agence. */
+.brand-copy{display:grid;gap:3px}
+.brand-copy strong{font-size:13px;font-weight:700}
+.brand-copy small,.profile small{font-size:8px;color:#b8cae0;letter-spacing:.035em}
+/* Trait séparateur de l’en-tête. */
+.side-divider{height:1px;background:#ffffff2b;margin:0 -1px 16px}
+/* Liens de navigation empilés. */
+.nav{display:grid;gap:3px;margin:0 -16px}
+/* Style commun aux liens de navigation. */
+.nav-link{position:relative;display:flex;align-items:center;gap:12px;min-height:40px;padding:0 20px;color:#c7d5e6;text-decoration:none;font-size:12px;transition:background .18s,color .18s}
+/* Le survol fournit un retour visuel sans modifier l’état sélectionné du lien. */
+.nav-link:hover{background:#ffffff12;color:#fff}
+/* Le fond et le trait orange marquent la section active. */
+.nav-link.active{background:#ffffff17;color:#fff;font-weight:700}
+/* Le pseudo-élément dessine le repère actif sans ajouter de balise décorative au HTML. */
+.nav-link.active::before{position:absolute;inset:0 auto 0 0;width:3px;background:#f47720;content:""}
+/* Uniformise le tracé des icônes SVG et reprend la couleur du lien via currentColor. */
+.nav-link svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* Contrôle de fermeture réservé au tiroir mobile; masqué sur ordinateur. */
+.close-menu{display:none}
+/* Bouton d’ajout, aligné sous le menu. */
+.new-parcel{align-self:flex-start;margin:25px 0 0;padding:9px 12px;border:0;border-radius:7px;background:#f47720;color:white;font:600 11px "DM Sans",sans-serif;cursor:pointer;transition:background .18s,transform .18s}
+.new-parcel:hover{background:#df6514;transform:translateY(-1px)}
+.new-parcel span{font-size:13px}
+/* Ancre le profil en bas de la barre latérale. */
+.profile{display:flex;align-items:center;gap:10px;margin-top:auto;padding:14px 0 0;border-top:1px solid #ffffff27}
+.avatar{display:grid;place-items:center;width:33px;height:33px;border-radius:50%;background:#ffffff20;color:white;font-size:13px}
+/* Empile nom et fonction dans le bloc texte du profil. */
+.profile>span:last-child{display:grid;gap:3px}
+.profile strong{font-size:10px;color:white}
+/* Petit lien de sortie au pied de la navigation. */
+.logout{align-self:flex-start;margin:6px 0 0;padding:0;border:0;background:none;color:#b8cae0;font:400 10px "DM Sans",sans-serif;cursor:pointer}
+.logout:hover{color:white}
+/* Contenu à droite de la barre fixe. */
+.main{width:calc(100% - 312px);max-width:1600px;margin-left:312px;padding:28px 34px 30px 48px}
+/* L’espacement et l’échelle du titre suivent la maquette. */
+.page-header{margin:0 0 19px}
+/* Petit libellé en capitales pour séparer l’information. */
+.eyebrow{margin:0;color:#737a7d;font:500 9px var(--mono);letter-spacing:.15em}
+.page-header h1{margin:3px 0 1px;color:#17345a;font-size:25px;line-height:1.2;font-weight:700;letter-spacing:-.04em}
+.welcome{margin:5px 0 0;color:#858a8e;font-size:12px}
+/* Quatre indicateurs alignés sur grand écran. */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:21px}
+/* Carte claire avec bordure fine. */
+.stat-card{min-height:144px;padding:18px 20px 15px;border:1px solid var(--line);border-radius:12px;background:var(--paper);box-shadow:0 1px 2px #182f4805;transition:transform .18s,box-shadow .18s}
+.stat-card:hover,.status-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px #182f480d}
+/* Place le libellé et l’icône aux deux extrémités. */
+.stat-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.stat-top .eyebrow{font-size:8px;letter-spacing:.13em}
+.stat-icon{display:grid;place-items:center;width:31px;height:31px;border-radius:50%;font-weight:600}
+.stat-icon svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.stat-icon.blue{background:#eff3f8;color:#315a86}
+.stat-icon.green{background:#edf8f3;color:#2ca77f}
+.stat-icon.amber{background:#fff8ec;color:#e8a22f}
+.stat-icon.red{background:#fff1f0;color:#e45f64}
+.euro{font-size:16px}
+/* Chiffre principal de chaque indicateur. */
+.stat-number{display:block;margin-top:10px;color:var(--ink);font-size:38px;font-weight:700;line-height:1.15;letter-spacing:-.04em}
+/* Petite annotation sous le chiffre. */
+.stat-note{display:block;margin-top:5px;color:#686e71;font:400 9px var(--mono)}
+/* Cartes de contenu communes à la répartition et au tableau. */
+.panel{border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 1px 2px #182f4805}
+.status-panel{padding:20px 21px}
+.section-heading h2{margin:3px 0 0;color:#25466e;font-size:15px;font-weight:700;letter-spacing:-.015em}
+/* Quatre statuts occupent la même largeur. */
+.status-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-top:14px}
+/* Carte de comptage d’un statut de colis. */
+.status-card{display:flex;min-height:141px;flex-direction:column;align-items:flex-start;padding:15px;border:1px solid #e9eae7;border-radius:9px;background:#fdfdfa;transition:transform .18s,box-shadow .18s}
+/* Pastilles colorées distinctes pour reconnaître les statuts. */
+.badge{display:inline-flex;align-items:center;min-height:23px;padding:0 10px;border-radius:5px;font-size:10px;font-weight:600;white-space:nowrap}
+.badge-new{background:#d7ebed;color:#315b6a}
+.badge-transit{background:#fff2c8;color:#8b6222}
+.badge-arrived{background:#dfebff;color:#3d66a7}
+.badge-delivered{background:#d4f8e9;color:#258463}
+.badge-neutral{background:#eeeeea;color:#51565a}
+.status-card>strong{margin-top:12px;color:var(--ink);font-size:42px;line-height:1;font-weight:700;letter-spacing:-.04em}
+.status-card>small{margin-top:12px;color:#727879;font:400 9px var(--mono)}
+/* Liste d’activité sous les statistiques. */
+.activity-panel{margin-top:21px;padding:20px 21px 6px}
+.activity-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.view-all{color:#25466e;font-size:10px;font-weight:700;text-decoration:none}
+.view-all:hover{text-decoration:underline}
+.view-all span{margin-left:3px}
+/* Le conteneur autorise le défilement du tableau sur les petits écrans. */
+.table-scroll{overflow-x:auto}
+/* Colonnes du tableau de colis. */
+table{width:100%;min-width:700px;border-collapse:collapse;text-align:left}
+/* En-têtes du tableau en petites capitales. */
+thead th{height:31px;border-bottom:1px solid #e7e8e4;color:#777d80;font:500 8px var(--mono);letter-spacing:.08em;white-space:nowrap}
+/* Les rangées alternent un fond subtil et des séparateurs. */
+tbody tr{height:72px;border-bottom:1px solid #f0f0ed}
+tbody tr:last-child{border-bottom:0}
+tbody tr:nth-child(odd){background:linear-gradient(90deg,#fafaf7 0,#fafaf7 100%);background-clip:content-box}
+tbody td{padding:9px 8px;color:#333a40;font-size:10px;white-space:nowrap}
+tbody td:first-child{padding-left:9px;color:#345477;font:500 9px var(--mono)}
+.people{display:grid;gap:2px}
+.people strong{font-size:10px;font-weight:600}
+.people span{color:#777e82;font-size:9px}
+.table-badge{min-height:19px;padding:0 8px;font-size:9px}
+/* Cache le bouton menu en grand écran. */
+.mobile-menu{display:none}
+/* Message discret affiché après une action. */
+.toast{position:fixed;right:24px;bottom:24px;z-index:10;max-width:min(360px,calc(100vw - 32px));padding:12px 16px;border-radius:8px;background:#17345a;color:#fff;font-size:12px;box-shadow:0 8px 24px #142b4630;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .2s,transform .2s}
+/* La classe ajoutée par JavaScript révèle le message et annule son décalage initial. */
+.toast.visible{opacity:1;transform:translateY(0)}
+/* Réduit l’espace latéral sur les écrans moyens. */
+/* Réduit largeurs et espacements quand la fenêtre moyenne ne peut plus afficher la mise en page large. */
+@media(max-width:1100px){.sidebar{width:245px}.main{width:calc(100% - 245px);margin-left:245px;padding-right:24px;padding-left:28px}.stats,.status-grid{gap:10px}.stat-card{padding-right:14px;padding-left:14px}.status-card{padding:12px}.status-panel,.activity-panel{padding-right:16px;padding-left:16px}}
+/* Menu tiroir et cartes sur deux colonnes pour tablette/téléphone. */
+/* Sur petit écran, transforme la barre en tiroir animé et réorganise les cartes en deux colonnes. */
+@media(max-width:760px){.sidebar{width:min(290px,84vw);box-shadow:12px 0 35px #142b4630;transform:translateX(-105%);transition:transform .24s ease}.sidebar.open{transform:translateX(0)}.close-menu{position:absolute;top:20px;right:16px;display:grid;width:34px;height:34px;place-items:center;border:1px solid #ffffff45;border-radius:7px;background:#ffffff12;color:white;font:400 24px/1 "DM Sans",sans-serif;cursor:pointer}.main{width:100%;margin:0;padding:20px 18px 24px}.mobile-menu{display:flex;width:38px;height:36px;flex-direction:column;justify-content:center;gap:5px;margin-bottom:15px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:white;cursor:pointer}.mobile-menu span{width:16px;height:2px;background:var(--navy)}.page-header h1{font-size:23px}.stats,.status-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stat-card{min-height:130px}.status-card{min-height:126px}.activity-panel{margin-top:15px}.status-panel{padding:17px}.activity-panel{padding:17px 14px 5px}}
+/* Utilise une seule colonne sur les téléphones étroits. */
+/* Sur les téléphones étroits, compacte les cartes pour éviter les débordements de texte et de grille. */
+@media(max-width:420px){.main{padding-right:13px;padding-left:13px}.stats{gap:9px}.stat-card{min-height:121px;padding:13px 12px}.stat-top .eyebrow{font-size:7px}.stat-number{font-size:33px}.status-grid{gap:8px}.status-card{min-height:120px;padding:11px}.badge{padding:0 7px;font-size:9px}.status-card>strong{font-size:37px}.status-card>small{font-size:8px}.section-heading h2{font-size:14px}}
+/* Désactive les mouvements si l’utilisateur préfère une interface calme. */
+/* Respecte le réglage système de réduction des animations pour limiter les mouvements à l’écran. */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
